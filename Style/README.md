@@ -35,6 +35,7 @@ render() {
 ```
 
 ## CSS Variables
+
 Assuming you have set a variable externally from this element called `--mood-color`
 
 ```js

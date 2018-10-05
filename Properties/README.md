@@ -11,6 +11,7 @@ static get properties() {
 ```
 
 ## Types
+
 ???
 - String
 - Object
@@ -19,6 +20,7 @@ static get properties() {
 - Function
 
 ## Default Value
+
 Set them in the constructor
 
 ```js
