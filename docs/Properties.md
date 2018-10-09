@@ -1,18 +1,25 @@
 # Properties
 
+Properties are used to store data that the components can interact with. Properties are One-Way Bound to the component.
+
 ## Basic Usage
+
+When `mood` changes, the component will rerender the template with the new value. `Lit-Html` is smart enough to only render the required elements.
 
 ```js
 static get properties() {
     return {
         mood: String
     }
+
+    render() {
+        return html`${this.mood}`
+    }
 }
 ```
 
 ## Types
 
-???
 - String
 - Object
 - Number
@@ -21,7 +28,7 @@ static get properties() {
 
 ## Default Value
 
-Set them in the constructor
+To set a default value, simply add it to the constructor. If no value is passed in to the component, the default value will be used during render.
 
 ```js
 static get properties() {
@@ -37,6 +44,8 @@ constructor() {
 ```
 
 ## Reflect to Attribute
+
+To reflect changes for the property to the element's attribute, add the `reflect: true` to the property declaration. When `mood` changes, the host element will change the `mood` attribute to the updated value.
 
 ```js
 static get properties() {

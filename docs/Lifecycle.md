@@ -1,15 +1,24 @@
 # Lifecycle
 
-## Native lifecycle
+## Basic Lifecycle
 
 1. constructor
 2. connectedCallback
 3. disconnectedCallback
 
-## LitElement lifecycle events
+## Advanced Lifecycle
 
-`changedProperties` is a Map of <property,value>
+`changedProperties` is a Map of <property,oldValue>
 
+```js
+update(changedProperties) {
+    if(changedProperties.has('mood')) {
+        const oldValue = changedProperties.get('mood')
+
+        console.log(`Original: ${oldValue}, Updated: ${this.mood}`)
+    }
+}
+```
 `shouldUpdate(changedProperties)` (protected): Implement to control if updating and rendering should occur when property values change or requestUpdate() is called. The changedProperties argument is a Map with keys for the changed properties pointing to their previous values. By default, this method always returns true, but this can be customized as an optimization to avoid updating work when changes occur, which should not be rendered.
 
 `firstUpdated(changedProperties)` (protected): This method calls render() and then uses lit-html in order to render the template DOM. It also updates any reflected attributes based on property values. Setting properties inside this method will not trigger another update.
